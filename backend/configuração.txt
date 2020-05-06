@@ -1,0 +1,80 @@
+# Estrutura
+
+yarn init -y
+yarn add express
+yarn add typescript -D
+yarn tsc --init, para gerar nossa arquivo tsconfig.json
+Vá em tsconfig.json e deixe, "outDir": "./dist" e "rootDir": "./src"
+
+yarn add ts-node-dev -D
+
+Dentro do package.json adicione:
+
+"scripts": {
+    "build": "tsc",
+    "dev:server": "ts-node-dev --inspect --transpileOnly --ignore-watch node_modules src/server.ts"
+  },
+
+# Editor config
+
+root = true
+
+[*]
+end_of_line = lf
+indent_style = space
+indent_size = 2
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# Eslint
+
+yarn add eslint -D
+yarn eslint --init
+
+# Prettier
+
+yarn add prettier eslint-config-prettier eslint-plugin-prettier -D;
+Em .eslintrc.json deixe assim no extends:
+
+"extends": [
+    "airbnb-base",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
+  ],
+
+  Em rules :
+
+  "rules": {
+    "prettier/prettier": "error", 
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never"
+      }
+    ]
+  }
+
+  crie um arquivo com o nome de prettier.config.js e deixe essas configurações
+
+  module.exports = {
+  singleQuote: true,
+  trailingComma: "all",
+  arrowParens: "avoid",
+};
+
+Crie um arquivo com o nome de .eslintignore e deixe essas configurações
+
+/*.js
+node_modules
+dist
+
+# Debugger
+
+"request": "attach",
+"protocol": "inspector",
+"restart": true,
+
+Delete a linha onde tem inscrito program
