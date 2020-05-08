@@ -6,7 +6,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity('appointments')
+@Entity('users')
 class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -20,11 +20,14 @@ class User {
   @Column('varchar')
   password: string;
 
+  @Column('varchar')
+  avatar: string;
+
   @CreateDateColumn()
   created_at: Date;
 
   @UpdateDateColumn()
-  updated_ate: Date;
+  updated_at: Date;
 }
 
 export default User;
