@@ -36,6 +36,7 @@
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-props-no-spreading": "off",
     "react/jsx-indent": "off",
+    "import/no-duplicates": "off",
     "camelcase": "off",
     "react/jsx-filename-extension": [
       1,
